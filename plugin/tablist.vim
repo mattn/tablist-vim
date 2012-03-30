@@ -35,7 +35,7 @@ function! s:tablist()
   let info = []
   for t in map(range(1, tabpagenr('$')), '{ "nr": v:val, "buflist": map(tabpagebuflist(v:val), ''{ "nr": v:val, "name": s:bufname(v:val) }'') }')
     call add(info, [t.nr])
-    call add(lines, printf("Tab%d", t.nr))
+    call add(lines, printf("Tab#%d", t.nr))
     for b in t.buflist
       call add(info, [t.nr, b.nr])
       call add(lines, printf("  %s", b.name))
