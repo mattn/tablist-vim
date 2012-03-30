@@ -41,7 +41,7 @@ function! s:tablist()
       call add(lines, printf("  %s", b.name))
     endfor
   endfor
-  silent topleft 10vsp __TABLIST__
+  exe "silent" "topleft" get(g:, 'tablist_width', 15) "vsp" "__TABLIST__"
   call setline(1, lines)
   setlocal buftype=nofile bufhidden=wipe cursorline
   nnoremap <buffer> <silent> <cr> :call <SID>open()<cr>
